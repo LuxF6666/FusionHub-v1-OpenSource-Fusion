@@ -1,0 +1,44 @@
+policy_mode: office
+always_block:
+  - "付款"
+  - "支付"
+  - "下单"
+  - "购买"
+  - "验证码"
+  - "密码"
+  - "导出密码"
+  - "格式化"
+  - "关闭杀毒"
+  - "修改注册表"
+  - "清空磁盘"
+  - "删除系统"
+require_confirmation:
+  - "删除"
+  - "卸载"
+  - "安装"
+  - "管理员"
+  - "运行命令"
+  - "提交表单"
+  - "上传"
+  - "发送文件"
+  - "改系统设置"
+protected_paths:
+  - "C:\\Windows"
+  - "C:\\Program Files"
+  - "C:\\Program Files (x86)"
+  - "C:\\Users\\Lu\\AppData"
+engine_permissions:
+  openclaw:
+    third_party_skills_default: false
+    require_skill_whitelist: true
+    max_file_scope: "user_dirs_only"
+  open_interpreter:
+    allow_admin_commands: false
+    allow_system_modification: false
+    require_confirmation_for_shell: true
+  agent_s:
+    allow_desktop_control: true
+    require_confirmation_for_send: true
+  browser_use:
+    allow_web_form_fill: true
+    require_confirmation_for_submit: true

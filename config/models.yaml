@@ -1,0 +1,34 @@
+default_provider: bailian
+providers:
+  bailian:
+    type: openai_compatible
+    name: "Aliyun Bailian / DashScope"
+    api_key_env: DASHSCOPE_API_KEY
+    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    default_model: "qwen-plus"
+    vision_model: "qwen-vl-plus"
+  ollama:
+    type: ollama
+    name: "Ollama Local"
+    base_url: "http://127.0.0.1:11434"
+    default_model: "qwen2.5:14b"
+    coder_model: "qwen2.5-coder:14b"
+    memory_model: "hermes3:8b"
+  deepseek:
+    type: openai_compatible
+    name: "DeepSeek"
+    api_key_env: DEEPSEEK_API_KEY
+    base_url: "https://api.deepseek.com"
+    default_model: "deepseek-chat"
+  openai:
+    type: openai_compatible
+    name: "OpenAI"
+    api_key_env: OPENAI_API_KEY
+    base_url: "https://api.openai.com/v1"
+    default_model: "gpt-4.1"
+routing:
+  planning: bailian
+  vision: bailian
+  memory: ollama
+  low_cost_local: ollama
+  fallback: deepseek

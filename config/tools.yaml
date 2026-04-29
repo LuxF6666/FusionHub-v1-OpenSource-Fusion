@@ -1,0 +1,66 @@
+engines:
+  hermes:
+    display_name: "Hermes Agent"
+    role: "long_memory_skill_learning"
+    install_target: "wsl"
+    official_repo: "https://github.com/nousresearch/hermes-agent.git"
+    install_script: "installers/install_hermes_wsl.ps1"
+    health_command_windows: "wsl bash -lc 'command -v hermes && hermes --help >/dev/null 2>&1; echo $?'"
+    enabled: true
+
+  openclaw:
+    display_name: "OpenClaw"
+    role: "personal_assistant_skills_gateway"
+    install_target: "wsl"
+    official_package: "openclaw@latest"
+    install_script: "installers/install_openclaw_wsl.ps1"
+    health_command_windows: "wsl bash -lc 'command -v openclaw && openclaw --help >/dev/null 2>&1; echo $?'"
+    enabled: true
+    safety:
+      skill_whitelist_enabled: true
+      allow_third_party_skills_by_default: false
+
+  agent_s:
+    display_name: "Simular Agent-S / gui-agents"
+    role: "desktop_gui_visual_agent"
+    install_target: "windows"
+    official_repo: "https://github.com/simular-ai/agent-s.git"
+    pypi_package: "gui-agents"
+    install_script: "installers/install_agent_s_windows.ps1"
+    health_python_module: "gui_agents"
+    enabled: true
+
+  browser_use:
+    display_name: "Browser-use"
+    role: "browser_web_agent"
+    install_target: "windows"
+    official_repo: "https://github.com/browser-use/browser-use.git"
+    pypi_package: "browser-use"
+    install_script: "installers/install_browser_use_windows.ps1"
+    health_python_module: "browser_use"
+    enabled: true
+
+  open_interpreter:
+    display_name: "Open Interpreter"
+    role: "local_command_file_assistant"
+    install_target: "windows"
+    official_repo: "https://github.com/OpenInterpreter/open-interpreter.git"
+    pypi_package: "open-interpreter"
+    install_script: "installers/install_open_interpreter_windows.ps1"
+    health_command_windows: "interpreter --help"
+    enabled: true
+
+  playwright:
+    display_name: "Playwright"
+    role: "browser_driver"
+    install_target: "windows"
+    pypi_package: "playwright"
+    install_script: "installers/install_playwright_windows.ps1"
+    enabled: true
+
+  comfyui:
+    display_name: "ComfyUI Adapter"
+    role: "workflow_json_api_future"
+    install_target: "existing_local_service"
+    default_url: "http://127.0.0.1:8188"
+    enabled: false

@@ -1,0 +1,25 @@
+routes:
+  - name: memory_or_skill
+    keywords: ["记住", "记忆", "技能", "经验", "长期", "复盘"]
+    primary_engine: hermes
+    fallback_engine: openclaw
+  - name: assistant_ecosystem
+    keywords: ["日历", "邮箱", "提醒", "skill", "插件", "工具生态", "个人助理"]
+    primary_engine: openclaw
+    fallback_engine: hermes
+  - name: desktop_gui
+    keywords: ["桌面", "微信", "文件传输助手", "软件", "窗口", "点击", "拖动", "屏幕", "视觉"]
+    primary_engine: agent_s
+    fallback_engine: open_interpreter
+  - name: browser_web
+    keywords: ["网页", "浏览器", "网站", "后台", "表单", "打开网址", "URL", "ComfyUI"]
+    primary_engine: browser_use
+    fallback_engine: playwright
+  - name: local_file_command
+    keywords: ["文件", "文件夹", "搜索", "查找", "整理", "下载", "上传", "命令"]
+    primary_engine: open_interpreter
+    fallback_engine: agent_s
+  - name: comfyui
+    keywords: ["ComfyUI", "节点", "workflow", "工作流", "SDXL", "LoRA", "ControlNet"]
+    primary_engine: browser_use
+    fallback_engine: agent_s
